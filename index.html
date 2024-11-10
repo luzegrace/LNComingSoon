@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucy Navarro - Coming Soon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">Loading...</h1>
+    <p id="message">Please wait</p>
+  </div>
+
+  <script>
+    // Fetch JSON data and update the content
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('title').textContent = data.title;
+        document.getElementById('message').textContent = data.message;
+        document.body.style.background = `linear-gradient(135deg, ${data.themeColors[0]}, ${data.themeColors[1]}, ${data.themeColors[2]})`;
+      })
+      .catch(error => console.error('Error loading JSON data:', error));
+  </script>
+</body>
+</html>
